@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Реєстрація</title>
+</head>
+<body>
+
+<h2>Реєстрація</h2>
+
+<input id="username" type="text" placeholder="Логін">
+<input id="password" type="password" placeholder="Пароль">
+
+<button onclick="register()">Зареєструватися</button>
+
+<p>Вже є аккаунт? <a href="login.html">Увійти</a></p>
+
+<script>
+function register() {
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+
+    localStorage.setItem("username", username);
+    localStorage.setItem("password", password);
+
+    alert("Реєстрація успішна ✅");
+    window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>
