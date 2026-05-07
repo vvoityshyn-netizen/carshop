@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AutoElite — Продаж Автомобілів</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+</style>
+</head>
+<body>
+<nav>
+    
+  <div class="logo">Auto<span>Elite</span></div>
+  <ul class="nav-links">
+    <li><a href="#catalog">Каталог</a></li>
+    <li><a href="#why">Про нас</a></li>
+    <li><a href="#contact">Контакти</a></li>
+  </ul>
+  <button class="nav-cta" onclick="openModal()">Замовити тест-драйв</button>
+  <button class="pay-btn" onclick="openPayment()">Оплатити картою</button>
+  <button class="admin-btn" onclick="openLogin()">
+    Увійти
+</button>
+</nav>
+ 
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-tag">Офіційний дилер • Луцьк, Україна</p>
+  <h1>Твій ідеальний<em>Автомобіль</em></h1>
+  <p>Преміальні авто з офіційною гарантією, прозорим оформленням та індивідуальним кредитуванням.</p>
+  <div class="hero-btns">
+    <button class="btn-primary" onclick="document.getElementById('catalog').scrollIntoView({behavior:'smooth'})">Переглянути каталог</button>
+    <button class="btn-outline" onclick="openModal()">Безкоштовна консультація</button>
+  </div>
+</section>
+ 
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-num">850+</div><div class="stat-label">Авто в наявності</div></div>
+  <div class="stat"><div class="stat-num">12</div><div class="stat-label">Років на ринку</div></div>
+  <div class="stat"><div class="stat-num">98%</div><div class="stat-label">Задоволених клієнтів</div></div>
+  <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">Підтримка</div></div>
+</div>
+ 
+<!-- CATALOG -->
+<section class="section" id="catalog">
+  <p class="section-tag">Наш асортимент</p>
+  <h2 class="section-title">Актуальний каталог</h2>
+ 
+  <div class="filters">
+    <button class="filter-btn active" onclick="filterCars('all', this)">Всі</button>
+    <button class="filter-btn" onclick="filterCars('sedan', this)">Седани</button>
+    <button class="filter-btn" onclick="filterCars('suv', this)">Позашляховики</button>
+    <button class="filter-btn" onclick="filterCars('electric', this)">Електро</button>
+    <button class="filter-btn" onclick="filterCars('sport', this)">Спорт</button>
+  </div>
+ 
+  <div class="cars-grid" id="carsGrid">
+ 
+    <div class="car-card" data-type="sport">
+      <span class="badge-hot">Хіт</span>
+      <img class="car-img" src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=700&q=80" alt="Bugatt Chiron">
+      <div class="car-body">
+        <div class="car-make">Bugatti</div>
+        <div class="car-name">Chiron</div>
+        <div class="car-specs">
+          <div class="car-spec"><strong>2024</strong>Рік</div>
+          <div class="car-spec"><strong>340 к.с.</strong>Потужність</div>
+          <div class="car-spec"><strong>Авто</strong>КПП</div>
+          <div class="car-spec"><strong>4×4</strong>Привід</div>
+        </div>
+        <div class="car-footer">
+          <div class="car-price">$82,900 <span>USD</span></div>
+          <button class="cart-btn" onclick="addToCart('BMW M5')">
+    В кошик
+</button>
+    
+          <button class="pay-btn" onclick="goToPayment()">
+    Оплатити картою
+</button>
+          <a href="car.html" class="details-btn">Детальніше</a>
+        </div>
+      </div>
+    </div>
+ <div class="car-card" data-type="sport">
+    <img class="car-img" src="https://images.unsplash.com/photo-1617531653332-bd46c24f2068?q=80&w=1200&auto=format&fit=crop" alt="BMW M4 Competition">
+
+    <div class="car-body">
+        <div class="car-make">BMW</div>
+        <div class="car-name">M4 Competition </div>
+
+        <div class="car-specs">
+            <div class="car-spec"><strong>2024</strong><br>Рік</div>
+            <div class="car-spec"><strong>625 к.с.</strong><br>Потужність</div>
+            <div class="car-spec"><strong>Авто</strong><br>КПП</div>
+            <div class="car-spec"><strong>AWD</strong><br>Привід</div>
+        </div>
+
+        <div class="car-footer">
+            <div class="car-price">$98,000 <span>USD</span></div>
+
+            <button class="cart-btn" onclick="addToCart('BMW M5 Competition')">
+                В кошик
+            </button>
+
+            <button class="pay-btn" onclick="openPayment()">
+                Оплатити картою
+            </button>
+
+            <a href="car.html" class="details-btn">
+                Детальніше
+            </a>
+        </div>
+    </div>
+</div>
+<div class="car-card" data-type="sport">
+    <img class="car-img" src="https://images.unsplash.com/photo-1592198084033-aade902d1aae?q=80&w=1200&auto=format&fit=crop" alt="Ferrari">
+    <div class="car-body">
+        <div class="car-make">FERRARI</div>
+        <div class="car-name">F8 Tributo</div>
+        <div class="car-specs">
+            <div class="car-spec"><strong>2023</strong><br>Рік</div>
+            <div class="car-spec"><strong>720 к.с.</strong><br>Потужність</div>
+            <div class="car-spec"><strong>Авто</strong><br>КПП</div>
+            <div class="car-spec"><strong>RWD</strong><br>Привід</div>
+        </div>
+        <div class="car-footer">
+            <div class="car-price">$280,000 <span>USD</span></div>
+            <button class="cart-btn" onclick="addToCart('Ferrari F8 Tributo')">В кошик</button>
+            <button class="pay-btn" onclick="openPayment()">Оплатити картою</button>
+            <a href="car.html" class="details-btn">Детальніше</a>
+        </div>
+    </div>
+</div>
+
+<div class="car-card" data-type="suv">
+    <img class="car-img" src="https://images.pexels.com/photos/9927973/pexels-photo-9927973.jpeg" alt="Mercedes G-Class">
+    <div class="car-body">
+        <div class="car-make">MERCEDES</div>
+        <div class="car-name">G-Class AMG</div>
+        <div class="car-specs">
+            <div class="car-spec"><strong>2024</strong><br>Рік</div>
+            <div class="car-spec"><strong>585 к.с.</strong><br>Потужність</div>
+            <div class="car-spec"><strong>Авто</strong><br>КПП</div>
+            <div class="car-spec"><strong>4x4</strong><br>Привід</div>
+        </div>
+        <div class="car-footer">
+            <div class="car-price">$190,000 <span>USD</span></div>
+            <button class="cart-btn" onclick="addToCart('Mercedes G-Class AMG')">В кошик</button>
+            <button class="pay-btn" onclick="openPayment()">Оплатити картою</button>
+            <a href="car.html" class="details-btn">Детальніше</a>
+        </div>
+    </div>
+</div>
+
+<div class="car-card" data-type="electric">
+    <img class="car-img" src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?q=80&w=1200&auto=format&fit=crop" alt="Tesla Model S">
+    <div class="car-body">
+        <div class="car-make">TESLA</div>
+        <div class="car-name">Model S Plaid</div>
+        <div class="car-specs">
+            <div class="car-spec"><strong>2024</strong><br>Рік</div>
+            <div class="car-spec"><strong>1020 к.с.</strong><br>Потужність</div>
+            <div class="car-spec"><strong>Авто</strong><br>КПП</div>
+            <div class="car-spec"><strong>AWD</strong><br>Привід</div>
+        </div>
+        <div class="car-footer">
+            <div class="car-price">$95,000 <span>USD</span></div>
+            <button class="cart-btn" onclick="addToCart('Tesla Model S Plaid')">В кошик</button>
+            <button class="pay-btn" onclick="openPayment()">Оплатити картою</button>
+            <a href="car.html" class="details-btn">Детальніше</a>
+        </div>
+    </div>
+</div>
+    <div class="car-card" data-type="electric">
+      <span class="badge-new">Новинка</span>
+      <img class="car-img" src="https://images.unsplash.com/photo-1617788138017-80ad40651399?w=700&q=80" alt="Tesla Model 3">
+      <div class="car-body">
+        <div class="car-make">Tesla</div>
+        <div class="car-name">Model 3 Long Range</div>
+        <div class="car-specs">
+          <div class="car-spec"><strong>2024</strong>Рік</div>
+          <div class="car-spec"><strong>358 км</strong>Запас ходу</div>
+          <div class="car-spec"><strong>Авто</strong>КПП</div>
+          <div class="car-spec"><strong>AWD</strong>Привід</div>
+        </div>
+        <div class="car-footer">
+          <div class="car-price">$43,500 <span>USD</span></div>
+           <button class="pay-btn" onclick="goToPayment()">
+    Оплатити картою
+</button>
+          <a href="car.html" class="details-btn">Детальніше</a>
+        </div>
+      </div>
+    </div>
+ <div class="car-card" data-type="sport">
+
+    <img class="car-img"
+    src="https://images.pexels.com/photos/10916456/pexels-photo-10916456.jpeg"
+    alt="Lamborghini Huracan">
+
+    <div class="car-body">
+
+        <div class="car-make">LAMBORGHINI</div>
+        <div class="car-name">Huracán EVO</div>
+
+        <div class="car-specs">
+            <div class="car-spec"><strong>2024</strong><br>Рік</div>
+            <div class="car-spec"><strong>640 к.с.</strong><br>Потужність</div>
+            <div class="car-spec"><strong>Авто</strong><br>КПП</div>
+            <div class="car-spec"><strong>AWD</strong><br>Привід</div>
+        </div>
+
+        <div class="car-footer">
+
+            <div class="car-price">
+                $340,000 <span>USD</span>
+            </div>
+
+            <button class="cart-btn" onclick="addToCart('Lamborghini Huracan EVO')">
+                В кошик
+            </button>
+
+            <button class="pay-btn" onclick="openPayment()">
+                Оплатити картою
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+<div class="car-card" data-type="sport">
+
+    <img class="car-img"
+    src="https://images.pexels.com/photos/17217569/pexels-photo-17217569.jpeg"
+    alt="Audi RS7">
+
+    <div class="car-body">
+
+        <div class="car-make">AUDI</div>
+        <div class="car-name">RS7 Sportback</div>
+
+        <div class="car-specs">
+            <div class="car-spec"><strong>2024</strong><br>Рік</div>
+            <div class="car-spec"><strong>630 к.с.</strong><br>Потужність</div>
+            <div class="car-spec"><strong>Авто</strong><br>КПП</div>
+            <div class="car-spec"><strong>quattro</strong><br>Привід</div>
+        </div>
+
+        <div class="car-footer">
+
+            <div class="car-price">
+                $165,000 <span>USD</span>
+            </div>
+
+            <button class="cart-btn" onclick="addToCart('Audi RS7')">
+                В кошик
+            </button>
+
+            <button class="pay-btn" onclick="openPayment()">
+                Оплатити картою
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+    <div class="car-card" data-type="sport">
+      <img class="car-img" src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=700&q=80" alt="Mercedes E-Class">
+      <div class="car-body">
+        <div class="car-make">BMW</div>
+        <div class="car-name">M5</div>
+        <div class="car-specs">
+          <div class="car-spec"><strong>2023</strong>Рік</div>
+          <div class="car-spec"><strong>258 к.с.</strong>Потужність</div>
+          <div class="car-spec"><strong>Авто</strong>КПП</div>
+          <div class="car-spec"><strong>RWD</strong>Привід</div>
+        </div>
+        <div class="car-footer">
+          <div class="car-price">$61,200 <span>USD</span></div>
+           <button class="pay-btn" onclick="goToPayment()">
+    Оплатити картою
+</button>
+          <a href="car.html" class="details-btn">Детальніше</a>
+        </div>
+      </div>
+    </div>
+     <div class="car-card" data-type="electric">
+
+    <img class="car-img"
+    src="https://images.pexels.com/photos/18621506/pexels-photo-18621506.jpeg"
+    alt="Porsche Taycan">
+
+    <div class="car-body">
+
+        <div class="car-make">PORSCHE</div>
+        <div class="car-name">Taycan Turbo S</div>
+
+        <div class="car-specs">
+            <div class="car-spec"><strong>2024</strong><br>Рік</div>
+            <div class="car-spec"><strong>952 к.с.</strong><br>Потужність</div>
+            <div class="car-spec"><strong>Electric</strong><br>Тип</div>
+            <div class="car-spec"><strong>AWD</strong><br>Привід</div>
+        </div>
+
+        <div class="car-footer">
+
+            <div class="car-price">
+                $210,000 <span>USD</span>
+            </div>
+
+            <button class="cart-btn" onclick="addToCart('Porsche Taycan Turbo S')">
+                В кошик
+            </button>
+
+            <button class="pay-btn" onclick="openPayment()">
+                Оплатити картою
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+<div class="car-card" data-type="suv">
+
+    <img class="car-img"
+    src="https://images.pexels.com/photos/28496683/pexels-photo-28496683.jpeg"
+    alt="Range Rover Sport">
+
+    <div class="car-body">
+
+        <div class="car-make">RANGE ROVER</div>
+        <div class="car-name">Sport SVR</div>
+
+        <div class="car-specs">
+            <div class="car-spec"><strong>2024</strong><br>Рік</div>
+            <div class="car-spec"><strong>635 к.с.</strong><br>Потужність</div>
+            <div class="car-spec"><strong>Авто</strong><br>КПП</div>
+            <div class="car-spec"><strong>4x4</strong><br>Привід</div>
+        </div>
+
+        <div class="car-footer">
+
+            <div class="car-price">
+                $185,000 <span>USD</span>
+            </div>
+
+            <button class="cart-btn" onclick="addToCart('Range Rover Sport SVR')">
+                В кошик
+            </button>
+
+            <button class="pay-btn" onclick="openPayment()">
+                Оплатити картою
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+<div class="car-card" data-type="suv">
+
+    <img class="car-img"
+    src="https://images.pexels.com/photos/10186990/pexels-photo-10186990.jpeg"
+    alt="BMW X6M">
+
+    <div class="car-body">
+
+        <div class="car-make">BMW</div>
+        <div class="car-name">X6M Competition</div>
+
+        <div class="car-specs">
+            <div class="car-spec"><strong>2024</strong><br>Рік</div>
+            <div class="car-spec"><strong>625 к.с.</strong><br>Потужність</div>
+            <div class="car-spec"><strong>Авто</strong><br>КПП</div>
+            <div class="car-spec"><strong>xDrive</strong><br>Привід</div>
+        </div>
+
+        <div class="car-footer">
+
+            <div class="car-price">
+                $165,000 <span>USD</span>
+            </div>
+
+            <button class="cart-btn" onclick="addToCart('BMW X6M Competition')">
+                В кошик
+            </button>
+
+            <button class="pay-btn" onclick="openPayment()">
+                Оплатити картою
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="car-card" data-type="sport">
+
+    <img class="car-img"
+    src="https://images.pexels.com/photos/29603045/pexels-photo-29603045.jpeg"
+    alt="Lamborghini Urus">
+
+    <div class="car-body">
+
+        <div class="car-make">LAMBORGHINI</div>
+        <div class="car-name">Urus Performante</div>
+
+        <div class="car-specs">
+            <div class="car-spec"><strong>2024</strong><br>Рік</div>
+            <div class="car-spec"><strong>666 к.с.</strong><br>Потужність</div>
+            <div class="car-spec"><strong>Авто</strong><br>КПП</div>
+            <div class="car-spec"><strong>AWD</strong><br>Привід</div>
+        </div>
+
+        <div class="car-footer">
+
+            <div class="car-price">
+                $290,000 <span>USD</span>
+            </div>
+
+            <button class="cart-btn" onclick="addToCart('Lamborghini Urus')">
+                В кошик
+            </button>
+
+            <button class="pay-btn" onclick="openPayment()">
+                Оплатити картою
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="car-card" data-type="sport">
+    <img class="car-img" src="https://images.pexels.com/photos/30256931/pexels-photo-30256931.jpeg" alt="Audi R8">
+
+    <div class="car-body">
+        <div class="car-make">AUDI</div>
+        <div class="car-name">R8 V10 Plus</div>
+
+        <div class="car-specs">
+            <div class="car-spec"><strong>2024</strong><br>Рік</div>
+            <div class="car-spec"><strong>610 к.с.</strong><br>Потужність</div>
+            <div class="car-spec"><strong>Авто</strong><br>КПП</div>
+            <div class="car-spec"><strong>quattro</strong><br>Привід</div>
+        </div>
+
+        <div class="car-footer">
+            <div class="car-price">$240,000 <span>USD</span></div>
+
+            <button class="cart-btn" onclick="addToCart('Audi R8')">
+                В кошик
+            </button>
+
+            <button class="pay-btn" onclick="openPayment()">
+                Оплатити картою
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<div class="car-card" data-type="sport">
+    <img class="car-img" src="https://images.pexels.com/photos/14085019/pexels-photo-14085019.jpeg" alt="Porsche 911">
+
+    <div class="car-body">
+        <div class="car-make">PORSCHE</div>
+        <div class="car-name">911 Turbo S</div>
+
+        <div class="car-specs">
+            <div class="car-spec"><strong>2024</strong><br>Рік</div>
+            <div class="car-spec"><strong>650 к.с.</strong><br>Потужність</div>
+            <div class="car-spec"><strong>PDK</strong><br>КПП</div>
+            <div class="car-spec"><strong>AWD</strong><br>Привід</div>
+        </div>
+
+        <div class="car-footer">
+            <div class="car-price">$260,000 <span>USD</span></div>
+
+            <button class="cart-btn" onclick="addToCart('Porsche 911 Turbo S')">
+                В кошик
+            </button>
+
+            <button class="pay-btn" onclick="openPayment()">
+                Оплатити картою
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<div class="car-card" data-type="suv">
+    <img class="car-img" src="https://images.pexels.com/photos/3764984/pexels-photo-3764984.jpeg" alt="Rolls Royce Cullinan">
+
+    <div class="car-body">
+        <div class="car-make">ROLLS-ROYCE</div>
+        <div class="car-name">Cullinan</div>
+
+        <div class="car-specs">
+            <div class="car-spec"><strong>2024</strong><br>Рік</div>
+            <div class="car-spec"><strong>600 к.с.</strong><br>Потужність</div>
+            <div class="car-spec"><strong>Авто</strong><br>КПП</div>
+            <div class="car-spec"><strong>AWD</strong><br>Привід</div>
+        </div>
+
+        <div class="car-footer">
+            <div class="car-price">$450,000 <span>USD</span></div>
+
+            <button class="cart-btn" onclick="addToCart('Rolls Royce Cullinan')">
+                В кошик
+            </button>
+
+            <button class="pay-btn" onclick="openPayment()">
+                Оплатити картою
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<div class="car-card" data-type="electric">
+    <img class="car-img" src="https://images.pexels.com/photos/19052331/pexels-photo-19052331.jpeg" alt="Tesla Cybertruck">
+
+    <div class="car-body">
+        <div class="car-make">TESLA</div>
+        <div class="car-name">Cybertruck</div>
+
+        <div class="car-specs">
+            <div class="car-spec"><strong>2025</strong><br>Рік</div>
+            <div class="car-spec"><strong>845 к.с.</strong><br>Потужність</div>
+            <div class="car-spec"><strong>Electric</strong><br>Тип</div>
+            <div class="car-spec"><strong>AWD</strong><br>Привід</div>
+        </div>
+
+        <div class="car-footer">
+            <div class="car-price">$120,000 <span>USD</span></div>
+
+            <button class="cart-btn" onclick="addToCart('Tesla Cybertruck')">
+                В кошик
+            </button>
+
+            <button class="pay-btn" onclick="openPayment()">
+                Оплатити картою
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<div class="car-card" data-type="sedan">
+    <img class="car-img" src="https://images.pexels.com/photos/17259570/pexels-photo-17259570.jpeg" alt="Mercedes S Class">
+
+    <div class="car-body">
+        <div class="car-make">MERCEDES</div>
+        <div class="car-name">S63 AMG</div>
+
+        <div class="car-specs">
+            <div class="car-spec"><strong>2024</strong><br>Рік</div>
+            <div class="car-spec"><strong>802 к.с.</strong><br>Потужність</div>
+            <div class="car-spec"><strong>Авто</strong><br>КПП</div>
+            <div class="car-spec"><strong>AWD</strong><br>Привід</div>
+        </div>
+
+        <div class="car-footer">
+            <div class="car-price">$230,000 <span>USD</span></div>
+
+            <button class="cart-btn" onclick="addToCart('Mercedes S63 AMG')">
+                В кошик
+            </button>
+
+            <button class="pay-btn" onclick="openPayment()">
+                Оплатити картою
+            </button>
+        </div>
+    </div>
+</div>
+    <div class="car-card" data-type="sport">
+      <span class="badge-hot">Хіт</span>
+      <img class="car-img" src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=700&q=80" alt="Porsche 911">
+      <div class="car-body">
+        <div class="car-make">Porsche</div>
+        <div class="car-name">911 Carrera S</div>
+        <div class="car-specs">
+          <div class="car-spec"><strong>2024</strong>Рік</div>
+          <div class="car-spec"><strong>450 к.с.</strong>Потужність</div>
+          <div class="car-spec"><strong>PDK</strong>КПП</div>
+          <div class="car-spec"><strong>RWD</strong>Привід</div>
+        </div>
+        <div class="car-footer">
+          <div class="car-price">$128,000 <span>USD</span></div>
+           <button class="pay-btn" onclick="goToPayment()">
+    Оплатити картою
+</button>
+          <button class="car-btn" onclick="openModal('Porsche 911 Carrera S')">Детальніше</button>
+        </div>
+      </div>
+    </div>
+ 
+    <div class="car-card" data-type="electric">
+      <span class="badge-new">Новинка</span>
+      <img class="car-img" src="https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=700&q=80" alt="Audi Q7">
+      <div class="car-body">
+        <div class="car-make">Tesla</div>
+        <div class="car-name">Model X</div>
+        <div class="car-specs">
+          <div class="car-spec"><strong>2024</strong>Рік</div>
+          <div class="car-spec"><strong>340 к.с.</strong>Потужність</div>
+          <div class="car-spec"><strong>Авто</strong>КПП</div>
+          <div class="car-spec"><strong>quattro</strong>Привід</div>
+        </div>
+        <div class="car-footer">
+          <div class="car-price">$88,400 <span>USD</span></div>
+           <button class="pay-btn" onclick="goToPayment()">
+    Оплатити картою
+</button>
+          <button class="car-btn" onclick="openModal('Audi Q7 55 TFSI quattro')">Детальніше</button>
+        </div>
+      </div>
+    </div>
+ 
+    <div class="car-card" data-type="sport">
+      <img class="car-img" src="https://images.unsplash.com/photo-1621135802920-133df287f89c?w=700&q=80" alt="Lamborghini Aventador">
+      <div class="car-body">
+        <div class="car-make">Lamborghini</div>
+        <div class="car-name">Aventador</div>
+        <div class="car-specs">
+          <div class="car-spec"><strong>2024</strong>Рік</div>
+          <div class="car-spec"><strong>408 к.с.</strong>Потужність</div>
+          <div class="car-spec"><strong>Авто</strong>КПП</div>
+          <div class="car-spec"><strong>AWD</strong>Привід</div>
+        </div>
+        <div class="car-footer">
+          <div class="car-price">$55,700 <span>USD</span></div>
+           <button class="pay-btn" onclick="goToPayment()">
+    Оплатити картою
+</button>
+          <button class="car-btn" onclick="openModal('Lamborghini Aventador')">Детальніше</button>
+        </div>
+      </div>
+    </div>
+ 
+  </div>
+</section>
+ 
+<!-- WHY US -->
+<section class="section" id="why">
+  <p class="section-tag">Чому обирають нас</p>
+  <h2 class="section-title">Переваги AutoElite</h2>
+  <div class="features-grid">
+    <div class="feature">
+      <span class="feature-icon">🛡️</span>
+      <div class="feature-title">Офіційна гарантія</div>
+      <p class="feature-text">Кожен автомобіль поставляється з повною заводською гарантією та сервісним обслуговуванням.</p>
+    </div>
+    <div class="feature">
+      <span class="feature-icon">💳</span>
+      <div class="feature-title">Гнучке кредитування</div>
+      <p class="feature-text">Індивідуальні програми фінансування від 0% річних, швидке оформлення за 1 день.</p>
+    </div>
+    <div class="feature">
+      <span class="feature-icon">🔍</span>
+      <div class="feature-title">Перевірена історія</div>
+      <p class="feature-text">Повна перевірка VIN, юридична чистота, звіт CarVertical для кожного авто.</p>
+    </div>
+    <div class="feature">
+      <span class="feature-icon">🚗</span>
+      <form action="https://formsumbit.com/spec555.com.ua@gmail.com" method="POST"></form>
+      <div class="feature-title">Тест-драйв безкоштовно</div>
+      <p class="feature-text">Тест-драйв будь-якого автомобіля без зобов'язань. Ми привеземо авто до вас.</p>
+    </div>
+    <div class="feature">
+      <span class="feature-icon">🔧</span>
+      <div class="feature-title">Власний сервіс</div>
+      <p class="feature-text">Авторизований сервісний центр з оригінальними запчастинами та кваліфікованими майстрами.</p>
+    </div>
+    <div class="feature">
+      <span class="feature-icon">📦</span>
+      <div class="feature-title">Trade-In</div>
+      <p class="feature-text">Прийміть ваше авто в зарахування за ринковою ціною — швидко та вигідно.</p>
+    </div>
+  </div>
+</section>
+ 
+<!-- CTA BANNER -->
+<div class="cta-banner" id="contact">
+  <h2>Готові знайти авто мрії?</h2>
+  <p>Наші менеджери допоможуть підібрати ідеальний варіант під ваш бюджет та потреби</p>
+  <button class="btn-dark" onclick="openModal()">Залишити заявку</button>
+</div>
+ 
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <span class="logo">Auto<span>Elite</span></span>
+    <p>Офіційний дилер преміальних автомобілів у Луцьку. Якість, довіра та прозорість — наші пріоритети.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Каталог</h4>
+    <ul>
+      <li><a href="#">Нові авто</a></li>
+      <li><a href="#">Вживані авто</a></li>
+      <li><a href="#">Електромобілі</a></li>
+      <li><a href="#">Позашляховики</a></li>
+      <li><a href="#">Спорткари</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Послуги</h4>
+    <ul>
+      <li><a href="#">Тест-драйв</a></li>
+      <li><a href="#">Trade-In</a></li>
+      <li><a href="#">Кредитування</a></li>
+      <li><a href="#">Лізинг</a></li>
+      <li><a href="#">Сервіс</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Контакти</h4>
+    <ul>
+      <li><a href="tel:+380501234567">+38 050 123 45 67</a></li>
+      <li><a href="mailto:info@autoelite.ua">info@autoelite.ua</a></li>
+      <li><a href="#">м. Луцьк, вул. Автомобільна 1</a></li>
+      <li><a href="#">Пн–Сб: 9:00–20:00</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>© 2024 AutoElite. Всі права захищені.</span>
+  <span>Розроблено для прикладу</span>
+</div>
+ 
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <p class="modal-tag">Залишити заявку</p>
+    <h2 class="modal-title" id="modalTitle">Безкоштовна консультація</h2>
+    <form onsubmit="submitForm(event)">
+      <input type="text" placeholder="Ваше ім'я" required>
+      <input type="tel" placeholder="Номер телефону" required>
+      <input type="text" id="carInput" placeholder="Модель автомобіля (необов'язково)">
+      <select>
+        <option value="">Тип запиту</option>
+        <option>Консультація</option>
+        <option>Тест-драйв</option>
+        <option>Кредитування</option>
+        <option>Trade-In</option>
+      </select>
+      <textarea placeholder="Ваше повідомлення..."></textarea>
+      <button type="submit" class="btn-primary" style="width:100%;padding:1rem">Відправити заявку</button>
+    </form>
+  </div>
+</div>
+ <script>
+function openPayment() {
+    alert("Оплата картою успішна ✅ Це тестовий режим.");
+}
+</script>
+</body>
+<script>
+function goToPayment() {
+    window.location.href = "payment.html";
+}
+</script>
+<script>
+function openModal() {
+    alert("Заявку прийнято ✅ Менеджер скоро зв'яжеться з вами.");
+}
+
+function openPayment() {
+    window.location.href = "payment.html";
+}
+</script>
+<script>
+function openPayment() {
+    window.location.href = "payment.html";
+}
+
+function openAdmin() {
+    window.location.href = "admin.html";
+}
+</script>
+<script>
+function filterCars(type) {
+    let cars = document.querySelectorAll(".car-card");
+
+    cars.forEach(function(car) {
+        if (type === "all" || car.dataset.type === type) {
+            car.style.display = "block";
+        } else {
+            car.style.display = "none";
+        }
+    });
+}
+</script>
+
+</body>
+</html>
+
+<script>
+let cart = [];
+
+function addToCart(carName){
+    cart.push(carName);
+
+    alert(carName + " додано в кошик 🛒");
+}
+</script>
+<script>
+function openLogin() {
+    window.location.href = "login.html";
+}
+</script>
+<script>
+function buyCar(carName, price) {
+    let purchases = JSON.parse(localStorage.getItem("purchases")) || [];
+
+    purchases.push({
+        car: carName,
+        price: price,
+        date: new Date().toLocaleString()
+    });
+
+    localStorage.setItem("purchases", JSON.stringify(purchases));
+
+    window.location.href = "payment.html";
+}
+</script>
+<script>
+    document.querySelector(".consult-btn").onclick = function(){
+        alert('Наш менеджер скоро зв\'яжеться з вами!');
+    }
+    
+</script>
